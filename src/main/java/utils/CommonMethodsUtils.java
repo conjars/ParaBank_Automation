@@ -2,6 +2,7 @@ package utils;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -21,6 +22,12 @@ public class CommonMethodsUtils {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	public static void highlightToElement(WebDriver driver, WebElement ele) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].style.border='3px solid red';", ele);
 
 	}
 

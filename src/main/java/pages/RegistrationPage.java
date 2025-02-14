@@ -6,11 +6,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import dev.failsafe.internal.util.Assert;
+import utils.CommonMethodsUtils;
+
 public class RegistrationPage extends BasePage {
+	
+	CommonMethodsUtils cmu = new CommonMethodsUtils();
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }
+    
+    
+    @FindBy(xpath =  "//a[text()='Register']")
+    private WebElement registerLink;
+    
+    @FindBy(xpath =  "//h1[text()='Signing up is easy!']")
+    private WebElement sectionNameTitle;
+    
+    
+ 
 
     @FindBy(id = "customer.firstName")
     private WebElement firstNameField;
@@ -92,7 +107,27 @@ public class RegistrationPage extends BasePage {
         confirmPasswordField.sendKeys(confirmPassword);
     }
 
-    public void clickRegister() {
-        registerButton.click();
+   
+    
+    public void clickRegisterLink_verifysectionname(String expectedvalue) throws InterruptedException
+    {
+    	
+    	CommonMethodsUtils.highlightToElement(driver, registerLink);
+    	Thread.sleep(3000);
+    	registerLink.click();
+    	String str = sectionNameTitle.getText().trim();
+    	System.out.println("###################"+str);
+    	Thread.sleep(3000);
+    	CommonMethodsUtils.highlightToElement(driver, sectionNameTitle);
+    	Assert.isTrue(str.equals(expectedvalue), "section name displayed incorrect", "section name displayed correctly");
+    	
+    	
+    	
     }
+    
+    
+    
+    
+    
+    
 }

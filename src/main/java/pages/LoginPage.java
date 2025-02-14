@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import dev.failsafe.internal.util.Assert;
+import utils.CommonMethodsUtils;
 import utils.ConfigReader;
 
 public class LoginPage extends BasePage {
@@ -20,15 +21,20 @@ public class LoginPage extends BasePage {
     private WebElement password;
 	@FindBy(xpath = "//input[@value='Log In']")
     private WebElement LogIn;
+	@FindBy(xpath = "//a[text()='Log Out']")
+    private WebElement logout;
 	
 	@FindBy(xpath = "//h1[contains(text(),'Accounts Overview')]")
     private WebElement HomePage;
 	
+	CommonMethodsUtils cmu = new CommonMethodsUtils();
 	
 	public  void verifyHomePage(String expcted)
 	{
 		String actual = HomePage.getText();
 		System.out.println("Expected value "+actual);
+		
+		CommonMethodsUtils.highlightToElement(driver, HomePage);
 		
 		Assert.isTrue(actual.equals(expcted), "Home page is not verifyed succesfully", "Home page  verifyed  sucessfully");
 		
@@ -36,7 +42,13 @@ public class LoginPage extends BasePage {
 		
 	}
 	
-	 		
+	public  void  verifyLogoutScreen()
+	{
+		CommonMethodsUtils.highlightToElement(driver, logout);
+		logout.click();
+		
+		
+	}
 	
 	
 	public void enterUsername()

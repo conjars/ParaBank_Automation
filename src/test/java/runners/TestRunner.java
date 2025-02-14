@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/feature/NavigationLinks.feature",
+        features = "src/test/resources/feature/registration.feature",
         glue = {"stepDefinitions", "hooks"},
         plugin = { "html:target/cucumber-report.html"},
         monochrome = true

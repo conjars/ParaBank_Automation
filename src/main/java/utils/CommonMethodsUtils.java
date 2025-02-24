@@ -1,7 +1,21 @@
 package utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,11 +38,96 @@ public class CommonMethodsUtils {
 		}
 
 	}
+	
+	
+	public static void waitForElementTobeVisibilty(WebDriver driver, WebElement element, int timeeout)
+
+	{
+		try {
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeeout));
+			 wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
 
 	public static void highlightToElement(WebDriver driver, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].style.border='3px solid red';", ele);
 
 	}
+
+	public static String getCellValue(Row row, Integer collIndex) {
+
+		if (collIndex == null)
+			return "";
+
+		Cell cell = row.getCell(collIndex);
+		if (cell == null)
+			return "";
+
+		switch (cell.getCellType()) {
+
+		case STRING:
+			return cell.getStringCellValue().trim();
+
+		case NUMERIC:
+			return cell.getStringCellValue().trim();
+
+		case BOOLEAN:
+			return cell.getStringCellValue().trim();
+
+		default:
+			return "";
+
+		}
+
+	}
+
+//	public static List<UserData> readExcelData(String filepath, String sheetName) throws FileNotFoundException {
+//
+//		List<UserData> userlist = new ArrayList<>();
+//
+//		FileInputStream fis = new FileInputStream(new File(filepath));
+//		Workbook wk = new XSSFWorkbook();
+//		Sheet sh = wk.getSheet(sheetName);
+//		Row headerow = sh.getRow(0);
+//		Map<String, Integer> columnmap = new HashMap<>();
+//		for (int i = 0; i < headerow.getPhysicalNumberOfCells(); i++) {
+//			columnmap.put(headerow.getCell(i).getStringCellValue().trim(), i);
+//
+//		}
+//
+//		for (int i = 1; i <= sh.getLastRowNum(); i++) {
+//			Row row = sh.getRow(i);
+//			if (row == null)
+//				continue;
+//
+//			UserData user = new UserData();
+//
+//			user.setFirstName(getCellValue(row, columnmap.get("FirstName")));
+//			user.setFirstName(getCellValue(row, columnmap.get("LastName")));
+//			user.setFirstName(getCellValue(row, columnmap.get("Address")));
+//			user.setFirstName(getCellValue(row, columnmap.get("City")));
+//			user.setFirstName(getCellValue(row, columnmap.get("State")));
+//			user.setFirstName(getCellValue(row, columnmap.get("ZipCode")));
+//			user.setFirstName(getCellValue(row, columnmap.get("Phone")));
+//			user.setFirstName(getCellValue(row, columnmap.get("SSN")));
+//			user.setFirstName(getCellValue(row, columnmap.get("Username")) + new Random().nextInt(1000));
+//			user.setFirstName(getCellValue(row, columnmap.get("password")));
+//			user.setFirstName(getCellValue(row, columnmap.get("confirm")));
+//			userlist.add(user);
+//
+//			
+//
+//		}
+//		return userlist;
+//
+//	}
 
 }

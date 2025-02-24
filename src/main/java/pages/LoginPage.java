@@ -16,13 +16,13 @@ public class LoginPage extends BasePage {
 	}
 	
 	@FindBy(xpath = "//input[@name='username']")
-    private WebElement userName;
+    public WebElement userName;
 	@FindBy(xpath = "//input[@name='password']")
-    private WebElement password;
+    public WebElement password;
 	@FindBy(xpath = "//input[@value='Log In']")
-    private WebElement LogIn;
+    public WebElement LogIn;
 	@FindBy(xpath = "//a[text()='Log Out']")
-    private WebElement logout;
+    public WebElement logout;
 	
 	@FindBy(xpath = "//h1[contains(text(),'Accounts Overview')]")
     private WebElement HomePage;

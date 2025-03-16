@@ -25,6 +25,13 @@ public class LoginStep {
 		lp.verifyClickButton(); 		
 		lp.verifyHomePage(lablename);
 	}
+	
+	
+
+@Given("user naviage to Hyrtutorial page")
+public void user_naviage_to_hyr_tutorial_page() {
+    
+}
 
 	
 	

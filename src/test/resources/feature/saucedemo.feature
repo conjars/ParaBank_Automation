@@ -1,7 +1,7 @@
 Feature: SauceDemo Shopping Flow
 
   Scenario: User logs in, selects a product, and completes checkout
-    #Given I open the SauceDemo login page
+    Given I open the SauceDemo login page
     When I enter login credentials
       | username       | password      |
       | standard_user  | secret_sauce  |

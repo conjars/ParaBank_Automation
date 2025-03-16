@@ -54,6 +54,21 @@ public class CommonMethodsUtils {
 	}
 	
 	
+	public static void waitForElementTobepresenceofElement(WebDriver driver, WebElement element, int timeeout)
+
+	{
+		try {
+
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeeout));
+			 wait.until(ExpectedConditions.presenceOfElementLocated((By) element));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+	
 	
 
 	public static void highlightToElement(WebDriver driver, WebElement ele) {
@@ -61,6 +76,11 @@ public class CommonMethodsUtils {
 		js.executeScript("arguments[0].style.border='3px solid red';", ele);
 
 	}
+	
+	
+	
+	
+	
 
 	public static String getCellValue(Row row, Integer collIndex) {
 
@@ -88,46 +108,4 @@ public class CommonMethodsUtils {
 		}
 
 	}
-
-//	public static List<UserData> readExcelData(String filepath, String sheetName) throws FileNotFoundException {
-//
-//		List<UserData> userlist = new ArrayList<>();
-//
-//		FileInputStream fis = new FileInputStream(new File(filepath));
-//		Workbook wk = new XSSFWorkbook();
-//		Sheet sh = wk.getSheet(sheetName);
-//		Row headerow = sh.getRow(0);
-//		Map<String, Integer> columnmap = new HashMap<>();
-//		for (int i = 0; i < headerow.getPhysicalNumberOfCells(); i++) {
-//			columnmap.put(headerow.getCell(i).getStringCellValue().trim(), i);
-//
-//		}
-//
-//		for (int i = 1; i <= sh.getLastRowNum(); i++) {
-//			Row row = sh.getRow(i);
-//			if (row == null)
-//				continue;
-//
-//			UserData user = new UserData();
-//
-//			user.setFirstName(getCellValue(row, columnmap.get("FirstName")));
-//			user.setFirstName(getCellValue(row, columnmap.get("LastName")));
-//			user.setFirstName(getCellValue(row, columnmap.get("Address")));
-//			user.setFirstName(getCellValue(row, columnmap.get("City")));
-//			user.setFirstName(getCellValue(row, columnmap.get("State")));
-//			user.setFirstName(getCellValue(row, columnmap.get("ZipCode")));
-//			user.setFirstName(getCellValue(row, columnmap.get("Phone")));
-//			user.setFirstName(getCellValue(row, columnmap.get("SSN")));
-//			user.setFirstName(getCellValue(row, columnmap.get("Username")) + new Random().nextInt(1000));
-//			user.setFirstName(getCellValue(row, columnmap.get("password")));
-//			user.setFirstName(getCellValue(row, columnmap.get("confirm")));
-//			userlist.add(user);
-//
-//			
-//
-//		}
-//		return userlist;
-//
-//	}
-
 }

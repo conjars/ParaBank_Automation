@@ -193,7 +193,6 @@ public class RegistrationPage extends BasePage {
 	
 	
 	
-	
 
 	public void clickRegisterLink_verifysectionname(String expectedvalue) throws InterruptedException {
 

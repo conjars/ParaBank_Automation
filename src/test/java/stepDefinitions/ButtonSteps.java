@@ -18,6 +18,7 @@ import pages.LoginPage;
 public class ButtonSteps {
 	WebDriver driver = Hooks.driver;
 	ButtonsPage buttonsPage = new ButtonsPage(Hooks.driver);
+	@Given("I navigate to {string}")
     public void i_navigate_to(String url) {
         driver.get(url);
     }

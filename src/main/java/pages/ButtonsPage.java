@@ -16,7 +16,19 @@ public class ButtonsPage extends BasePage {
     private By checkbox = By.xpath("//form[@id='checkboxes']/input[1]");
     private By dropdown = By.id("dropdown");
 
+    
+    // Highlight Function inside Page Class
+    private void highlightElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.border='3px solid red'", element);
+        try {
+            Thread.sleep(500); // Pause for better visibility
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
     public void clickAddElement() {
+    	
         driver.findElement(addButton).click();
     }
 

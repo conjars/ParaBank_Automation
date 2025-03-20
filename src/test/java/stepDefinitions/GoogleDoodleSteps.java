@@ -41,19 +41,30 @@ public class GoogleDoodleSteps {
 
     @When("I click on the {string} filter")
     public void i_click_on_the_color_filter(String filterName) {
-        googleDoodlePage.clickColorFilter();
+    	
+    	
+        googleDoodlePage.selectFilter(filterName);
         test.log(Status.INFO, "Clicked on " + filterName + " filter");
+   
     }
 
-    @When("I select colors {string} and {string}")
-    public void i_select_multiple_colors(String color1, String color2) {
+    @When("I select {string} {string} and {string}")
+    public void i_select_multiple_colors(String label, String color1, String color2) {
+    	
+    	if(label.equals("colors")) {
         googleDoodlePage.selectTwoColors(color1, color2);
         test.log(Status.INFO, "Selected colors: " + color1 + " and " + color2);
+    	}
+    	else
+    	{
+    		googleDoodlePage.selectTwoTopic(color1, color2);
+            test.log(Status.INFO, "Selected colors: " + color1 + " and " + color2);
+    	}
     }
 
     @Then("I verify that doodles are filtered based on the selected colors")
     public void i_verify_color_filter() {
-        boolean isFiltered = googleDoodlePage.isColorFilterApplied();
+        boolean isFiltered = googleDoodlePage.isFilterApplied();
         Assert.assertTrue("Doodles should be filtered by selected colors", isFiltered);
         test.log(Status.PASS, "Doodles are filtered successfully based on selected colors");
     }

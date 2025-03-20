@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
         		"pretty", 
         		//"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",},
         		"html:target/cucumber-report.html"},
-        monochrome = true
+        monochrome = true, tags="@color"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override

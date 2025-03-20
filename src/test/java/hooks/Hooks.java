@@ -4,6 +4,8 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.qameta.allure.Attachment;
 import utils.ConfigReader;
+import utils.ExtentReportUtil;
+import io.cucumber.java.Scenario;
 import java.io.File;
 import java.time.Duration;
 
@@ -19,7 +21,8 @@ public class Hooks {
 	public static WebDriver driver;
 
 	@Before
-	public void setup() {
+	public void setup(Scenario scenario) {
+		 ExtentReportUtil.startTest(scenario.getName());
 		String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/ChromeDriver/chromedriver.exe";
 		// Ensure the file exists before setting the system property
 		String browser = ConfigReader.getProperty("browser");
@@ -60,6 +63,7 @@ public class Hooks {
 		if (driver != null) {
 			driver.quit();
 		}
+		ExtentReportUtil.endTest();
 	}
 
 	@Attachment(value = "Screenshot", type = "image/png")

@@ -7,11 +7,12 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/feature/button.feature",
+        features = "src/test/resources/feature/GoogleDoodle.feature",
         glue = {"stepDefinitions", "hooks"},
         plugin = { 
-        		"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",},
-        		//"html:target/cucumber-report.html"},
+        		"pretty", 
+        		//"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",},
+        		"html:target/cucumber-report.html"},
         monochrome = true
 )
 public class TestRunner extends AbstractTestNGCucumberTests {

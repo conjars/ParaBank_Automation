@@ -10,6 +10,7 @@ import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -40,7 +41,9 @@ public class Hooks {
 			options.addArguments("--remote-allow-origins=*"); // Fixes WebSocket connection issue
 			options.addArguments("--disable-extensions"); // Prevents browser conflicts
 			options.addArguments("--start-maximized");
-			driver = new ChromeDriver(options);
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			 driver = new ChromeDriver(options);
+			 driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		} else if (browser.equalsIgnoreCase("edge")) {

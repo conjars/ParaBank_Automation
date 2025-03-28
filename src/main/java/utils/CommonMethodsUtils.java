@@ -3,6 +3,8 @@ package utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,11 +19,15 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.common.io.Files;
 
 public class CommonMethodsUtils {
 
@@ -79,8 +85,24 @@ public class CommonMethodsUtils {
 	
 	
 		
-	
-	
+//	public static void takeScreenshot(WebDriver driver, String fileName)
+//	{
+//		
+//		try {
+//			
+//			File src =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//			Path screnshot = Paths.get("screenshot");
+//			if(!Files.e)
+//			
+//			Files.copy(src.toPath(), Paths.get("screenshots/" + fileName + ".png"));
+//			
+//		}catch(Exception e)
+//		{
+//			e.printStackTrace();
+//		}
+//		
+//	}
+//	
 	
 
 	public static String getCellValue(Row row, Integer collIndex) {

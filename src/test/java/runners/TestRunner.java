@@ -7,13 +7,13 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/feature/GoogleDoodle.feature",
+        features = "src/test/resources/feature/OrangeHRM.feature",
         glue = {"stepDefinitions", "hooks"},
         plugin = { 
         		"pretty", 
         		//"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",},
         		"html:target/cucumber-report.html"},
-        monochrome = true, tags="@color"
+        monochrome = true, tags="@ORangeempStatus"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
@@ -22,3 +22,5 @@ public class TestRunner extends AbstractTestNGCucumberTests {
         return super.scenarios();
     }
 }
+
+

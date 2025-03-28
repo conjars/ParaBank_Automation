@@ -87,6 +87,26 @@ public class GoogleDoodlePage extends BasePage {
         
         
     }
+    public void selectDateFilter() {
+        driver.findElement(dateFilter).click();
+    }
+
+    
+    public void selectYear(String year) {
+        Select selectYear = new Select(driver.findElement(yearDropdown));
+        selectYear.selectByVisibleText(year);
+    }
+
+    public void selectMonth(String month) {
+        Select selectMonth = new Select(driver.findElement(monthDropdown));
+        selectMonth.selectByVisibleText(month);
+    }
+
+    public void selectDay(String day) {
+        Select selectDay = new Select(driver.findElement(dayDropdown));
+        selectDay.selectByVisibleText(day);
+    }
+
     // ✅ Selects two colors using JavaScript for stability
     public void selectTwoColors(String color1, String color2) {
         wait.until(ExpectedConditions.presenceOfElementLocated(colorLabels));

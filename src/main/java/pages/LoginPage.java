@@ -29,6 +29,8 @@ public class LoginPage extends BasePage {
 	
 	CommonMethodsUtils cmu = new CommonMethodsUtils();
 	
+	
+	
 	public  void verifyHomePage(String expcted)
 	{
 		String actual = HomePage.getText();

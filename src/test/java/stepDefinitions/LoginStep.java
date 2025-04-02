@@ -16,7 +16,17 @@ public class LoginStep {
 	LoginPage lp = new LoginPage(Hooks.driver);
 	
 	
-	
+	@Given("User open the {string} home page")
+	public void user_open_the_herokuapp_home_page(String str) {
+		
+		if(str != null) {
+			
+			driver.get(str);
+			
+		}
+	    
+	}
+
 	@Given("user loging into parabank page sucessfully verify home page as {string}")
 	public void loginintoparabankApplication(String lablename) {
 		driver.get(ConfigReader.getEnvironmentURL()); // Read URL dynamically

@@ -1,7 +1,7 @@
 Feature: Automate Button Operations on HerokuApp
 
   Scenario: Perform three button operations
-    #Given I navigate to "https://the-internet.herokuapp.com/"
+    Given I navigate to "https://the-internet.herokuapp.com/"
     When I click on "Add/Remove Elements"
     And I add an element
     And I delete an element

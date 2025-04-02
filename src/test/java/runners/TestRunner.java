@@ -7,13 +7,13 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/feature/OrangeHRM.feature",
+        features = "src/test/resources/feature/OpenCartTest.feature",
         glue = {"stepDefinitions", "hooks"},
         plugin = { 
         		"pretty", 
-        		//"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",},
+        		//"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         		"html:target/cucumber-report.html"},
-        monochrome = true, tags="@ORangeempStatus"
+        monochrome = true, tags="@openCart"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override

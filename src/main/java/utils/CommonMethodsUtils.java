@@ -7,11 +7,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -85,24 +87,27 @@ public class CommonMethodsUtils {
 	
 	
 		
-//	public static void takeScreenshot(WebDriver driver, String fileName)
-//	{
-//		
-//		try {
-//			
-//			File src =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//			Path screnshot = Paths.get("screenshot");
-//			if(!Files.e)
-//			
-//			Files.copy(src.toPath(), Paths.get("screenshots/" + fileName + ".png"));
-//			
-//		}catch(Exception e)
-//		{
-//			e.printStackTrace();
-//		}
-//		
-//	}
-//	
+public static  String  takeScreenshot(WebDriver driver, String name)
+{
+	//  cucumer html reporting 
+	try {
+		
+		File src =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File dest = new File("screenshot/"+name + ".png");
+		FileUtils.copyFile(src, dest);
+		
+		byte[] filecontent = FileUtils.readFileToByteArray(dest);
+		return "data:image/png;base64,"+
+		Base64.getEncoder().encodeToString(filecontent);
+		
+		
+	}catch(Exception e)
+	{
+		e.printStackTrace();
+	}
+	return null;
+	
+}
 	
 
 	public static String getCellValue(Row row, Integer collIndex) {

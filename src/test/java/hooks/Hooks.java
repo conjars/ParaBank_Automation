@@ -2,7 +2,8 @@ package hooks;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.qameta.allure.Attachment;
+
+import utils.CommonMethodsUtils;
 import utils.ConfigReader;
 import utils.ExtentReportUtil;
 import io.cucumber.java.Scenario;
@@ -23,7 +24,7 @@ public class Hooks {
 
 	@Before
 	public void setup(Scenario scenario) {
-		 ExtentReportUtil.startTest(scenario.getName());
+		ExtentReportUtil.startTest(scenario.getName());
 		String chromeDriverPath = System.getProperty("user.dir") + "/src/test/resources/ChromeDriver/chromedriver.exe";
 		// Ensure the file exists before setting the system property
 		String browser = ConfigReader.getProperty("browser");
@@ -42,8 +43,8 @@ public class Hooks {
 			options.addArguments("--disable-extensions"); // Prevents browser conflicts
 			options.addArguments("--start-maximized");
 			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-			 driver = new ChromeDriver(options);
-			 driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
+			driver = new ChromeDriver(options);
+			driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 		} else if (browser.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		} else if (browser.equalsIgnoreCase("edge")) {
@@ -62,16 +63,20 @@ public class Hooks {
 	// ParaBank_Automation/src/test/resources/ChromeDriver/chromedriver.exe
 
 	@After
-	public void teardown() {
+	public void teardown(Scenario scenario) {
+
+		if (scenario.isFailed()) {
+			String screenshotbase = CommonMethodsUtils.takeScreenshot(driver, scenario.getName());
+			if (screenshotbase != null) {
+
+				scenario.attach(screenshotbase.getBytes(), "image/png", scenario.getName());
+
+			}
+		}
 		if (driver != null) {
 			driver.quit();
 		}
-		ExtentReportUtil.endTest();
+
 	}
 
-	@Attachment(value = "Screenshot", type = "image/png")
-
-	public byte[] captureScreenshot() {
-		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-	}
 }

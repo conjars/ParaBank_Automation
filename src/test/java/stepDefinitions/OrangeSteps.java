@@ -128,7 +128,7 @@ public class OrangeSteps {
 
     @Then("the user should be logged out successfully")
     public void verifyLogout() {
-       
+    	 dashboardPage.logout();
     }
 
 

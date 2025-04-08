@@ -35,15 +35,16 @@ public class OpenCartSteps   {
         componentsPage.navigateToCategory(tab, category);
     }
 
-    @When("User selects the first product and adds it to the cart")
-    public void user_selects_the_first_product_and_adds_it_to_cart() {
-        componentsPage.addFirstItemToCart();
+    @When("user selects {string} from show dropdown, adds first product to cart, verifies specification, adds to wishlist, and sees success message")
+    public void user_selects_the_first_product_and_adds_it_to_cart(String value) {
+        componentsPage.addFirstItemToCart(value);
     }
 
-    @When("User searches for {string} and adds it to cart")
-    public void user_searches_for_and_adds_it_to_cart(String product) {
+    @When("user searches for {string}, adds it to cart, updates quantity to {string}, and clicks on update button")
+    //user searches for "HTC Touch HD", adds it to cart, updates quantity to "3", and clicks on update button
+    public void user_searches_for_and_adds_it_to_cart(String product, String quantity) {
         
-        cartPage.searchAndAddProduct(product);
+        cartPage.searchAndAddProduct(product, quantity);
     }
 
     @When("User verifies the items in the cart")

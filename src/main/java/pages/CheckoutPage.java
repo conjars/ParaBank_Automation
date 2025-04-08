@@ -11,39 +11,44 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.cucumber.java.en.Then;
 import utils.ExtentReportUtil;
 
-public class CheckoutPage extends BasePage{
+public class CheckoutPage extends BasePage {
 	WebDriverWait wait;
-	
+
 	@FindBy(xpath = "//span[text()='My Account']")
-    WebElement myAccountMenu;
+	WebElement myAccountMenu;
 
-    @FindBy(linkText = "Logout")
-    WebElement logoutLink;
+	@FindBy(linkText = "Logout")
+	WebElement logoutLink;
 
-    public CheckoutPage(WebDriver driver) {
-        super(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        
-    }
+	@FindBy(xpath = "//a[@title='Checkout']")
+	WebElement checkoutLink;
+	
+	@FindBy(xpath = "//a[text()='Checkout']")
+	WebElement checkoutButton;
+	
+	
 
-    public boolean isCheckoutPageDisplayed() {
-        return driver.getTitle().contains("Checkout");
-    }
+	public CheckoutPage(WebDriver driver) {
+		super(driver);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-    public void completeOrder() {
-        // Simulate order completion if needed
-    }
+	}
 
-    public void logout() {
-        wait.until(ExpectedConditions.elementToBeClickable(myAccountMenu)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
-    }
+	public boolean isCheckoutPageDisplayed() {
+		return driver.getTitle().contains("Checkout");
+	}
 
-    public void proceedToCheckout() {
-        driver.get("https://tutorialsninja.com/demo/index.php?route=checkout/checkout");
-        wait.until(ExpectedConditions.titleContains("Checkout"));
-    }
+	public void completeOrder() {
+		// Simulate order completion if needed
+	}
 
+	public void logout() {
+		wait.until(ExpectedConditions.elementToBeClickable(myAccountMenu)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
+	}
 
+	public void proceedToCheckout() {
+		wait.until(ExpectedConditions.elementToBeClickable(checkoutLink)).click();
+	}
 
 }

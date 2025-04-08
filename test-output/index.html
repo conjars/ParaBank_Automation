@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\jsaho\AppData\Local\Temp\testng-eclipse-862936390\testng-customsuite.xml</span>
+                    <span>C:\Users\jsaho\AppData\Local\Temp\testng-eclipse--1792987821\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -131,15 +131,15 @@
                   </a> <!-- runScenario("User adds a product to cart and proceeds to checkout", "OpenCart Purchase Flow") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("User adds a product to cart and proceeds to checkout", "OpenCart Purchase Flow")</span>
-                  <div class="stack-trace">org.openqa.selenium.ElementNotInteractableException: element not interactable
-  (Session info: chrome=134.0.6998.178)
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=135.0.7049.42)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
 Build info: version: &apos;4.8.0&apos;, revision: &apos;267030adea&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [1d79fa52ecc9e53fed37850b288199a1, clickElement {id=f.80C3B66C56E68E700BF1E0F44D85F9A2.d.FA355F377E80E451754AABF448CA493E.e.105}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.178, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\jsaho\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50241}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:50241/devtoo..., se:cdpVersion: 134.0.6998.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on WINDOWS (1d79fa52ecc9e53fed37850b288199a1)] -&gt; xpath: //button[contains(@onclick,&apos;cart&apos;)]]
-Session ID: 1d79fa52ecc9e53fed37850b288199a1
+Command: [db271ceef1820d514c958ca3e5d09c0a, executeScript {script=arguments[0].style.border=&apos;3px solid red&apos;;, args=[{ELEMENT=f.EFB20E04C34555FF496E8E52D5E4594B.d.9E2F15A643B40101786B38F78025178E.e.116, element-6066-11e4-a52e-4f735466cecf=f.EFB20E04C34555FF496E8E52D5E4594B.d.9E2F15A643B40101786B38F78025178E.e.116}]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.42, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\jsaho\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58137}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58137/devtoo..., se:cdpVersion: 135.0.7049.42, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: db271ceef1820d514c958ca3e5d09c0a
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -152,17 +152,12 @@ Session ID: 1d79fa52ecc9e53fed37850b288199a1
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:257)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:78)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
-	at jdk.proxy2/jdk.proxy2.$Proxy31.click(Unknown Source)
-	at pages.ComponentsPage.addFirstItemToCart(ComponentsPage.java:36)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:480)
+	at utils.CommonMethodsUtils.highlightToElement(CommonMethodsUtils.java:84)
+	at pages.ComponentsPage.selectShowLimit(ComponentsPage.java:58)
+	at pages.ComponentsPage.addFirstItemToCart(ComponentsPage.java:82)
 	at stepDefinitions.OpenCartSteps.user_selects_the_first_product_and_adds_it_to_cart(OpenCartSteps.java:40)
-	at ✽.User selects the first product and adds it to the cart(file:///C:/Users/jsaho/OneDrive/Documents/SeleniumnProgram/ParaBank_Automation/src/test/resources/feature/OpenCartTest.feature:8)
+	at ✽.user selects &quot;25&quot; from show dropdown, adds first product to cart, verifies specification, adds to wishlist, and sees success message(file:///C:/Users/jsaho/OneDrive/Documents/SeleniumnProgram/ParaBank_Automation/src/test/resources/feature/OpenCartTest.feature:8)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -174,7 +169,7 @@ Session ID: 1d79fa52ecc9e53fed37850b288199a1
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\jsaho\AppData\Local\Temp\testng-eclipse-862936390\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\jsaho\AppData\Local\Temp\testng-eclipse--1792987821\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -235,12 +230,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'runners.TestRunner')
-data.setCell(0, 3, 18448);
+data.setCell(0, 3, 95110);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 18 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -268,18 +263,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">runners.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@eadb475)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@1e287667)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("User adds a product to cart and proceeds to checkout", "OpenCart Purchase Flow")</span>
-                <span class="method-start">847 ms</span>
+                <span class="method-start">3459 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">19311 ms</span>
+                <span class="method-start">99157 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

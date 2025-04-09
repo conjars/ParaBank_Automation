@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Apr 08 09:07:31 IST 2025</td>
+<td>Started on:</td><td>Wed Apr 09 09:46:57 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>100 seconds (100351 ms)</td>
+<tr><td>Total time:</td><td>10 seconds (10111 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -82,9 +82,9 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: &apos;4.8.0&apos;, revision: &apos;267030adea&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [db271ceef1820d514c958ca3e5d09c0a, executeScript {script=arguments[0].style.border=&apos;3px solid red&apos;;, args=[{ELEMENT=f.EFB20E04C34555FF496E8E52D5E4594B.d.9E2F15A643B40101786B38F78025178E.e.116, element-6066-11e4-a52e-4f735466cecf=f.EFB20E04C34555FF496E8E52D5E4594B.d.9E2F15A643B40101786B38F78025178E.e.116}]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.42, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\jsaho\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58137}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58137/devtoo..., se:cdpVersion: 135.0.7049.42, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: db271ceef1820d514c958ca3e5d09c0a
+Command: [6219df77ffd7736446c906ad3a84b07c, executeScript {script=arguments[0].style.border=&apos;3px solid red&apos;;, args=[{ELEMENT=f.3F24FB1CC532F9463B62F344D4E758D4.d.4BE748B6EEA3DA290B92ABD4266F0ABE.e.60, element-6066-11e4-a52e-4f735466cecf=f.3F24FB1CC532F9463B62F344D4E758D4.d.4BE748B6EEA3DA290B92ABD4266F0ABE.e.60}]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.42, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\jsaho\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63911}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63911/devtoo..., se:cdpVersion: 135.0.7049.42, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6219df77ffd7736446c906ad3a84b07c
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -99,20 +99,19 @@ Session ID: db271ceef1820d514c958ca3e5d09c0a
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
 	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:480)
 	at utils.CommonMethodsUtils.highlightToElement(CommonMethodsUtils.java:84)
-	at pages.ComponentsPage.selectShowLimit(ComponentsPage.java:58)
-	at pages.ComponentsPage.addFirstItemToCart(ComponentsPage.java:82)
-	at stepDefinitions.OpenCartSteps.user_selects_the_first_product_and_adds_it_to_cart(OpenCartSteps.java:40)
-	at ✽.user selects &quot;25&quot; from show dropdown, adds first product to cart, verifies specification, adds to wishlist, and sees success message(file:///C:/Users/jsaho/OneDrive/Documents/SeleniumnProgram/ParaBank_Automation/src/test/resources/feature/OpenCartTest.feature:8)
-</pre></div><a href='#' onClick='toggleBox("stack-trace366704571", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace366704571'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+	at pages.ComponentsPage.navigateToCategory(ComponentsPage.java:73)
+	at stepDefinitions.OpenCartSteps.user_navigates_to_tab_and_selects(OpenCartSteps.java:35)
+	at ✽.User navigates to &quot;Components&quot; tab and selects &quot;Monitors&quot;(file:///C:/Users/jsaho/OneDrive/Documents/SeleniumnProgram/ParaBank_Automation/src/test/resources/feature/OpenCartTest.feature:7)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1626994785", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1626994785'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
   (Session info: chrome=135.0.7049.42)
 For documentation on this error, please visit: https://selenium.dev/exceptions/#stale_element_reference
 Build info: version: &apos;4.8.0&apos;, revision: &apos;267030adea&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.8&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [db271ceef1820d514c958ca3e5d09c0a, executeScript {script=arguments[0].style.border=&apos;3px solid red&apos;;, args=[{ELEMENT=f.EFB20E04C34555FF496E8E52D5E4594B.d.9E2F15A643B40101786B38F78025178E.e.116, element-6066-11e4-a52e-4f735466cecf=f.EFB20E04C34555FF496E8E52D5E4594B.d.9E2F15A643B40101786B38F78025178E.e.116}]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.42, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\jsaho\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58137}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:58137/devtoo..., se:cdpVersion: 135.0.7049.42, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: db271ceef1820d514c958ca3e5d09c0a
+Command: [6219df77ffd7736446c906ad3a84b07c, executeScript {script=arguments[0].style.border=&apos;3px solid red&apos;;, args=[{ELEMENT=f.3F24FB1CC532F9463B62F344D4E758D4.d.4BE748B6EEA3DA290B92ABD4266F0ABE.e.60, element-6066-11e4-a52e-4f735466cecf=f.3F24FB1CC532F9463B62F344D4E758D4.d.4BE748B6EEA3DA290B92ABD4266F0ABE.e.60}]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.42, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\jsaho\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63911}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:63911/devtoo..., se:cdpVersion: 135.0.7049.42, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6219df77ffd7736446c906ad3a84b07c
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -127,13 +126,12 @@ Session ID: db271ceef1820d514c958ca3e5d09c0a
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)
 	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:480)
 	at utils.CommonMethodsUtils.highlightToElement(CommonMethodsUtils.java:84)
-	at pages.ComponentsPage.selectShowLimit(ComponentsPage.java:58)
-	at pages.ComponentsPage.addFirstItemToCart(ComponentsPage.java:82)
-	at stepDefinitions.OpenCartSteps.user_selects_the_first_product_and_adds_it_to_cart(OpenCartSteps.java:40)
-	at ✽.user selects &quot;25&quot; from show dropdown, adds first product to cart, verifies specification, adds to wishlist, and sees success message(file:///C:/Users/jsaho/OneDrive/Documents/SeleniumnProgram/ParaBank_Automation/src/test/resources/feature/OpenCartTest.feature:8)
+	at pages.ComponentsPage.navigateToCategory(ComponentsPage.java:73)
+	at stepDefinitions.OpenCartSteps.user_navigates_to_tab_and_selects(OpenCartSteps.java:35)
+	at ✽.User navigates to &quot;Components&quot; tab and selects &quot;Monitors&quot;(file:///C:/Users/jsaho/OneDrive/Documents/SeleniumnProgram/ParaBank_Automation/src/test/resources/feature/OpenCartTest.feature:7)
 </pre></div></td>
-<td>95</td>
-<td>runners.TestRunner@1caa0244</td></tr>
+<td>8</td>
+<td>runners.TestRunner@cecf639</td></tr>
 </table><p>
 </body>
 </html>

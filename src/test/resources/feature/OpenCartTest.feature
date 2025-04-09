@@ -6,9 +6,7 @@ Feature: OpenCart Purchase Flow
     When User logs in with valid credentials
     And User navigates to "Components" tab and selects "Monitors"    
     And user selects "25" from show dropdown, adds first product to cart, verifies specification, adds to wishlist, and sees success message
-    #And User searches for "HTC Touch HD" and adds it to cart
     And user searches for "HTC Touch HD", adds it to cart, updates quantity to "3", and clicks on update button
-    #And user searches for {string}, adds it to cart, updates quantity to {string}, and clicks on update button
     And User verifies the items in the cart
    And User proceeds to checkout
    Then User successfully logs out

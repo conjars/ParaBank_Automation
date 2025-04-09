@@ -1,13 +1,7 @@
 package hooks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-
-import utils.CommonMethodsUtils;
-import utils.ConfigReader;
-import utils.ExtentReportUtil;
-import io.cucumber.java.Scenario;
 import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.OutputType;
@@ -19,8 +13,46 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeAll;
+import io.cucumber.java.Scenario;
+import utils.CommonMethodsUtils;
+import utils.ConfigReader;
+import utils.ExtentReportUtil;
+
 public class Hooks {
 	public static WebDriver driver;
+	public static ExtentReports extent;
+    public static ExtentTest test;
+	
+	 @BeforeAll
+	    public static void setupExtent() {
+		 ExtentSparkReporter reporter = new ExtentSparkReporter("reports/ExtentReport.html");
+	        reporter.config().setTheme(Theme.STANDARD);
+	        reporter.config().setDocumentTitle("OpenCart Test Report");
+	        reporter.config().setReportName("OpenCart Automation Results");
+	        extent = new ExtentReports();
+	        extent.attachReporter(reporter);
+	    }
+	 
+	 @AfterStep
+	    public void takeScreenshot(Scenario scenario) throws IOException {
+	        if (scenario.isFailed()) {
+	            byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	            scenario.attach(screenshot, "image/png", "Failed Step Screenshot");
+	            test.fail("Step failed");
+	        } else {
+	            test.pass("Step passed");
+	        }
+	    }
 
 	@Before
 	public void setup(Scenario scenario) {
@@ -52,6 +84,8 @@ public class Hooks {
 		} else {
 			throw new RuntimeException("Invalid browser specified in config.properties");
 		}
+		
+		test = extent.createTest(scenario.getName());
 		// driver.manage().window().maximize();
 		// implict wait , explict wait fluent wait
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -63,20 +97,18 @@ public class Hooks {
 	// ParaBank_Automation/src/test/resources/ChromeDriver/chromedriver.exe
 
 	@After
-	public void teardown(Scenario scenario) {
+	public void teardown() {
 
-		if (scenario.isFailed()) {
-			String screenshotbase = CommonMethodsUtils.takeScreenshot(driver, scenario.getName());
-			if (screenshotbase != null) {
-
-				scenario.attach(screenshotbase.getBytes(), "image/png", scenario.getName());
-
-			}
-		}
+		
 		if (driver != null) {
 			driver.quit();
 		}
 
 	}
+	
+	 @AfterAll
+	    public static void flushReport() {
+	        extent.flush();
+	    }
 
 }

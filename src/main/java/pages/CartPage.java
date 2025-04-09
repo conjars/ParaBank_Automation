@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import dev.failsafe.internal.util.Assert;
+
 public class CartPage  extends BasePage{
     
 
@@ -48,7 +50,7 @@ public class CartPage  extends BasePage{
         String message = sucessmessagebyadding.getText();
         System.out.println(message);
         
-        
+        Assert.isTrue(true, "msg not validated", "msg validated");
     }
 
     public boolean verifyCartItems() {

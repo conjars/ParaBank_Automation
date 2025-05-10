@@ -1,17 +1,27 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
-public class SauceDemoPage extends BasePage{
-   
+public class SauceDemoPage  extends BasePage {
 
-    public SauceDemoPage(WebDriver driver) {
-    	super(driver);
+	public SauceDemoPage(WebDriver driver) {
+		super(driver);
+		
+	}
+
+    // Highlight Function inside Page Class
+    private void highlightElement(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].style.border='3px solid red'", element);
+        try {
+            Thread.sleep(500); // Pause for better visibility
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
+    // Locators
     private By usernameField = By.id("user-name");
     private By passwordField = By.id("password");
     private By loginButton = By.id("login-button");
@@ -31,28 +41,40 @@ public class SauceDemoPage extends BasePage{
     private By logoutButton = By.id("logout_sidebar_link");
 
     public void enterUsername(String username) {
-        driver.findElement(usernameField).sendKeys(username);
+        WebElement element = driver.findElement(usernameField);
+        highlightElement(element);
+        element.sendKeys(username);
     }
 
     public void enterPassword(String password) {
-        driver.findElement(passwordField).sendKeys(password);
+        WebElement element = driver.findElement(passwordField);
+        highlightElement(element);
+        element.sendKeys(password);
     }
 
     public void clickLogin() {
-        driver.findElement(loginButton).click();
+        WebElement element = driver.findElement(loginButton);
+        highlightElement(element);
+        element.click();
     }
 
     public void selectSortingOption(String option) {
-        Select select = new Select(driver.findElement(sortDropdown));
+        WebElement element = driver.findElement(sortDropdown);
+        highlightElement(element);
+        Select select = new Select(element);
         select.selectByVisibleText(option);
     }
 
     public void addFirstProductToCart() {
-        driver.findElement(addToCartButton).click();
+        WebElement element = driver.findElement(addToCartButton);
+        highlightElement(element);
+        element.click();
     }
 
     public void clickCart() {
-        driver.findElement(cartIcon).click();
+        WebElement element = driver.findElement(cartIcon);
+        highlightElement(element);
+        element.click();
     }
 
     public boolean isProductInCart() {
@@ -60,43 +82,66 @@ public class SauceDemoPage extends BasePage{
     }
 
     public void clickCheckout() {
-        driver.findElement(checkoutButton).click();
+        WebElement element = driver.findElement(checkoutButton);
+        highlightElement(element);
+        element.click();
     }
 
     public void enterFirstName(String firstName) {
-        driver.findElement(firstNameField).sendKeys(firstName);
+        WebElement element = driver.findElement(firstNameField);
+        highlightElement(element);
+        element.sendKeys(firstName);
     }
 
     public void enterLastName(String lastName) {
-        driver.findElement(lastNameField).sendKeys(lastName);
+        WebElement element = driver.findElement(lastNameField);
+        highlightElement(element);
+        element.sendKeys(lastName);
     }
 
     public void enterZipCode(String zipCode) {
-        driver.findElement(zipCodeField).sendKeys(zipCode);
+        WebElement element = driver.findElement(zipCodeField);
+        highlightElement(element);
+        element.sendKeys(zipCode);
     }
 
     public void clickContinue() {
-        driver.findElement(continueButton).click();
+        WebElement element = driver.findElement(continueButton);
+        highlightElement(element);
+        element.click();
     }
 
     public String getTotalPrice() {
-        return driver.findElement(totalPriceLabel).getText();
+        WebElement element = driver.findElement(totalPriceLabel);
+        highlightElement(element);
+        return element.getText();
     }
 
     public void clickFinish() {
-        driver.findElement(finishButton).click();
+        WebElement element = driver.findElement(finishButton);
+        highlightElement(element);
+        element.click();
     }
 
     public String getOrderConfirmationText() {
-        return driver.findElement(orderConfirmation).getText();
+        WebElement element = driver.findElement(orderConfirmation);
+        highlightElement(element);
+        return element.getText();
     }
 
     public void clickBackHome() {
-        driver.findElement(backHomeButton).click();
+        WebElement element = driver.findElement(backHomeButton);
+        highlightElement(element);
+        element.click();
     }
 
     public void logout() {
-        driver.findElement(menuButton).click();
-        driver.findElement(logoutButton).click();
+        WebElement menu = driver.findElement(menuButton);
+        highlightElement(menu);
+        menu.click();
+
+        WebElement logout = driver.findElement(logoutButton);
+        highlightElement(logout);
+        logout.click();
     }
 }

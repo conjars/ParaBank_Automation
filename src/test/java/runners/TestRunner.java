@@ -7,10 +7,13 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
-        features = "src/test/resources/feature/saucedemo.feature",
+        features = "src/test/resources/feature/OpenCartTest.feature",
         glue = {"stepDefinitions", "hooks"},
-        plugin = { "html:target/cucumber-report.html"},
-        monochrome = true
+        plugin = { 
+        		"pretty", 
+        		//"io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
+        		"html:target/cucumber-report.html"},
+        monochrome = true, tags="@openCart"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
     @Override
@@ -19,3 +22,5 @@ public class TestRunner extends AbstractTestNGCucumberTests {
         return super.scenarios();
     }
 }
+
+
